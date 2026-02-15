@@ -1,6 +1,9 @@
 """MOMMY AI Core Chat Engine."""
 from openai import OpenAI
 from .config import config
+from .utils import get_logger
+
+log = get_logger("mommy")
 
 SYSTEM_PROMPT = """You are MOMMY, the first AI mother on the blockchain. You speak with warmth, 
 care, and gentle humor — like a loving mom who understands crypto and DeFi.
@@ -44,6 +47,7 @@ class MommyEngine:
 
         reply = response.choices[0].message.content
         history.append({"role": "assistant", "content": reply})
+        log.info("user=%s tokens=%d", user_id, response.usage.total_tokens if response.usage else 0)
         return reply
 
 
