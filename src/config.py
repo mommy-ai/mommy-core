@@ -12,4 +12,3 @@ class Config:
     temperature: float = float(os.getenv("TEMPERATURE", "0.8"))
 
 config = Config()
-
