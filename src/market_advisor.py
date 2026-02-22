@@ -37,4 +37,3 @@ async def market_report() -> str:
         f"📊 BTC: ${data['price']:,.0f} ({data['change_24h']:+.1f}% today)\n\n"
         f"🤱 {advice}"
     )
-
